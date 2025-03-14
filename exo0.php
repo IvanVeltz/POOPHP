@@ -40,7 +40,9 @@
         public function age(){
             $dateNaissance = new DateTime($this->_dateDeNaissance);
             $aujourdhui = new DateTime(date("Y-m-d"));
+            // Creer deux instance de la classe DateTime
             $age = $dateNaissance->diff($aujourdhui);
+            // Renvoie la difference entre les deux dates
             return $age->format('%y');
             // retourne la date en gardant uniquement l'année
         }
@@ -56,7 +58,7 @@
     echo $p2;
 
     // Definition class, objet, methode magique, l'encapsulation
-    
+
 /*
 
 Une classe est l'ensemble d'objets ayant les memes proprietés
