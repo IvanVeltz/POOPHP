@@ -6,6 +6,7 @@
         private $_prenom;
         private $_dateDeNaissance;
 
+        
         public function getNom(){
             return $this-> _nom;
         }
