@@ -63,7 +63,7 @@
 
 Une classe est l'ensemble d'objets ayant les memes proprietés
 Un objet est une instance d'une classe ayant ses propres attributs et disposant des méthodes de sa classe.
-Les méthodes magiques sont des méthodes prédéfinies dans chaque classes
+Les méthodes magiques sont des méthodes prédéfinies 
 L'encapsulation c'est la visibilité des attributs et fonction d'une classe (private, public, protcted)
 
 
