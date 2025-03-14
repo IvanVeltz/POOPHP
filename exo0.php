@@ -6,6 +6,30 @@
         private $_prenom;
         private $_dateDeNaissance;
 
+        public function getNom(){
+            return $this-> _nom;
+        }
+
+        public function setNom($nom){
+            $this-> _nom = $nom;
+        }
+
+        public function getPrenom(){
+            return $this-> _prenom;
+        }
+
+        public function setPrenom($prenom){
+            $this-> _prenom = $prenom;
+        }
+
+        public function getDateDeNaissance(){
+            return $this-> _dateDeNaissance;
+        }
+
+        public function setDateDeNaissance($date){
+            $this-> _dateDeNaissance = $date;
+        }
+
         public function __construct($nom, $prenom, $dateDeNaissance){
             $this-> _nom = $nom;
             $this-> _prenom = $prenom;
@@ -14,21 +38,31 @@
 
         // Fonction qui calcule l'age d'une personne
         public function age(){
-            $aujourdhui = date("Y-m-d");
-            // Recupere la date du jour au format souhaité
-            $age = date_diff(date_create($this -> _dateDeNaissance), date_create($aujourdhui));
-            // date_create permet de créer une instance de la classe DateTime
-            // date_diff calcul la différence entre les deux date
+            $dateNaissance = new DateTime($this->_dateDeNaissance);
+            $aujourdhui = new DateTime(date("Y-m-d"));
+            $age = $dateNaissance->diff($aujourdhui);
             return $age->format('%y');
             // retourne la date en gardant uniquement l'année
         }
 
-        public function afficherInformations(){
-            echo "$this->_prenom $this->_nom a ".$this->age()." ans<br>";
+        public function __toString(){
+            return "$this->_prenom $this->_nom a ".$this->age()." ans<br>";
         }
     }
 
     $p1 = new Personne("DUPONT", "Michel", "1980-02-19");
     $p2 = new Personne("DUCHEMIN", "Alice", "1985-01-17");
-    $p1->afficherInformations();
-    $p2->afficherInformations();
+    echo $p1;
+    echo $p2;
+
+    // Definition class, objet, methode magique, l'encapsulation
+    
+/*
+
+Une classe est l'ensemble d'objets ayant les memes proprietés
+Un objet est une instance d'une classe ayant ses propres attributs et disposant des méthodes de sa classe.
+Les méthodes magiques sont des méthodes prédéfinies dans chaque classes
+L'encapsulation c'est la visibilité des attributs et fonction d'une classe (private, public, protcted)
+
+
+*/
