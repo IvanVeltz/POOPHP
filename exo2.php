@@ -98,6 +98,9 @@ $v2->stopper();
 $v2->accelerer(20);
 echo $v1->getVitesseActuelle();
 echo $v2->getVitesseActuelle();
-
-echo($v1);
-echo($v2);
+$voitures = [$v1, $v2];
+for ($i=0 ; $i < count($voitures) ; $i++) { 
+    echo "<br>Infos Véhicule $i<br>
+            ******************<br>$voitures[$i]";
+    
+}
