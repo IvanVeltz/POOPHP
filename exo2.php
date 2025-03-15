@@ -38,7 +38,7 @@ class Voiture{
     }
 
     public function getVitesseActuelle(){
-        return $this->_vitesseActuelle;
+        return "La vitesse du véhicule $this->_marque $this->_modele est de $this->_vitesseActuelle km / h<br>";
     }
     public  function setVitesseActuelle($vitesseActuelle){
         $this->_vitesseActuelle = $vitesseActuelle;
@@ -86,9 +86,6 @@ class Voiture{
         
     }
 
-    public function afficheVitesse(){
-        echo "La vitesse du véhicule $this->_marque $this->_modele est de $this->_vitesseActuelle km / h<br>";
-    }
 }
 
 $v1 = new Voiture("Peugeot", "408", 5);
@@ -99,8 +96,8 @@ $v1->accelerer(50);
 $v2->demmarer();
 $v2->stopper();
 $v2->accelerer(20);
-$v1->afficheVitesse();
-$v2->afficheVitesse();
+echo $v1->getVitesseActuelle();
+echo $v2->getVitesseActuelle();
 
 echo($v1);
 echo($v2);
