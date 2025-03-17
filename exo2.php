@@ -53,8 +53,12 @@ class Voiture{
 
     // methodes
     public function demmarer(){
-        $this->_demarre = TRUE;
-        echo "Le véhicule $this->_marque $this->_modele démarre<br>";
+        if(!$this->_demarre){
+            $this->_demarre = TRUE;
+            echo "Le véhicule $this->_marque $this->_modele démarre<br>";
+        } else {
+            echo "Le véhicule $this->_marque $this->_modele est déjà démarré<br>";
+        }
     }
 
     public function accelerer($vitesse){
@@ -67,10 +71,23 @@ class Voiture{
         }
     }
 
+    public function freiner($vitesse){
+        if($this->_demarre){
+            $this->_vitesseActuelle -= $vitesse;
+            echo "Le véhicule $this->_marque $this->_modele freine de $vitesse km / h<br>";
+        } else {
+            echo "Le véhicule $this->_marque $this->_modele est stopppé, il ne peut pas freiner<br>";
+        }
+    }
+
     public function stopper(){
-        $this->_demarre = FALSE;
-        $this->_vitesseActuelle = 0;
-        echo "Le véhicule $this->_marque $this->_modele est stoppé<br>";
+        if($this->_demarre){
+            $this->_demarre = FALSE;
+            $this->_vitesseActuelle = 0;
+            echo "Le véhicule $this->_marque $this->_modele est stoppé<br>";
+        } else {
+            echo "Le véhicule $this->_marque $this->_modele est déjà stoppé<br>";
+        }
     }
 
     public function __toString(){
@@ -93,6 +110,7 @@ $v2 = new Voiture("Citroen", "C4", 3);
 
 $v1->demmarer();
 $v1->accelerer(50);
+$v2->demmarer();
 $v2->demmarer();
 $v2->stopper();
 $v2->accelerer(20);
